@@ -1,15 +1,11 @@
 <!doctype html>
 <html>
 <body>
-    <h1> Transcript </h1>
+    <h1>Transcript for {{title}}</h1>
+    <h3>{{author}}</h3>
+    <h5>Date: {{upload_date}}</h5>
 
-    <ol>
-        {%for i in range(0, len)%}
-
-        <li>{{lines[i]}}</li>
-        {%endfor%}
-
-    </ol>
+    <p>{{script}}</p>
 
 </body>
 </html>
