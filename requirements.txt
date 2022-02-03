@@ -9,7 +9,7 @@ idna==3.3
 itsdangerous==2.0.1
 Jinja2==3.0.3
 MarkupSafe==2.0.1
-git+https://github.com/mtigzoe/pafy_package/tree/main/pafy_package
+git+https://github.com/mtigzoe/pafy_package/tree/main/pafy_package/pafy
 Pillow==9.0.0
 requests==2.27.1
 urllib3==1.26.8
