@@ -1,7 +1,9 @@
 from flask import Flask,render_template,request
 from youtube_transcript_api import YouTubeTranscriptApi
 import re
-import pafy   
+#import pafy   
+from pytube import extract
+
 
 app = Flask(__name__)
 
@@ -17,16 +19,12 @@ def index():
 def result():
     if request.method == 'POST':
         result = request.form.get("yt_url")
-        source_video_id = pafy.new(result)
-        video_id = source_video_id.videoid
-        title = source_video_id.title
-        author = source_video_id.author
-        #upload_date = source_video_id.published
+        source_video_id = extract.video_id(result)
         script = ""
         
         try:
-            YouTubeTranscriptApi.get_transcript(video_id)
-            transcript = YouTubeTranscriptApi.get_transcript(video_id)
+            
+            transcript = YouTubeTranscriptApi.get_transcript(source_video_id)
             for text in transcript:
                 t = text["text"]
                 if t != '[Music]':
